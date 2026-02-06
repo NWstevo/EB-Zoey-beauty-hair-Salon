@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Male Hair - EB Zoey Beauty</title>
+  <meta name="description" content="Male hair services at EB Zoey Beauty in Berlin. Book an appointment anytime." />
+  <link rel="stylesheet" href="css\base.css">
+  <link rel="stylesheet" href="css\layout.css">
+  <link rel="stylesheet" href="css\components.css">
+  <link rel="stylesheet" href="css\animations.css">
+</head>
+
+<body id="top">
+  <!-- HEADER: shared -->
+  <header class="siteHeader">
+    <div class="container headerRow">
+      <a class="brand" href="index.html" aria-label="EB Zoey Beauty home">
+        <span class="logo">EZ</span>
+        <span class="brandText">
+          <span class="brandName">EB Zoey Beauty</span>
+          <span class="brandMeta">Beauty House · Berlin</span>
+        </span>
+      </a>
+
+      <nav class="navLinks" aria-label="Primary navigation">
+        <a class="isActiveLink" href="male-hair.html">Male Hair</a>
+        <a href="female-hair.html">Female Hair</a>
+        <a href="cosmetics.html">Cosmetics</a>
+        <a href="jewelry.html">Jewelry</a>
+        <a href="careers.html">Careers</a>
+      </nav>
+
+      <div class="headerActions">
+        <button class="btn btnPrimary bookBtn" data-service="male-hair" type="button">Book an Appointment</button>
+        <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu" type="button">☰</button>
+      </div>
+    </div>
+
+    <div class="mobileMenu" id="mobileMenu" aria-label="Mobile navigation">
+      <div class="container mobileMenuInner">
+        <a href="male-hair.html">Male Hair</a>
+        <a href="female-hair.html">Female Hair</a>
+        <a href="cosmetics.html">Cosmetics</a>
+        <a href="jewelry.html">Jewelry</a>
+        <a href="careers.html">Careers</a>
+        <button class="btn btnGhost bookBtn" data-service="male-hair" type="button">Book an Appointment</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- PAGE HERO: simple banner -->
+    <section class="pageHero">
+      <div class="container pageHeroInner">
+        <h1>Male Hair</h1>
+        <p class="muted">Clean cuts, fresh trims, and premium grooming. Book anytime.</p>
+        <div class="pageHeroActions">
+          <button class="btn btnPrimary bookBtn" data-service="male-hair" type="button">Book an Appointment</button>
+          <a class="btn btnGhost" href="index.html">Back to Home</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT: services placeholders -->
+    <section class="contentSection">
+      <div class="container">
+        <h2>Popular Services</h2>
+        <div class="cardsGrid">
+          <article class="card">
+            <h3>Haircut</h3>
+            <p class="muted">Classic and modern styles with a clean finish.</p>
+            <button class="btn btnPrimary bookBtn" data-service="male-hair" type="button">Book</button>
+          </article>
+
+          <article class="card">
+            <h3>Fade</h3>
+            <p class="muted">Low, mid, or high fade with sharp detailing.</p>
+            <button class="btn btnPrimary bookBtn" data-service="male-hair" type="button">Book</button>
+          </article>
+
+          <article class="card">
+            <h3>Beard Grooming</h3>
+            <p class="muted">Line up, shaping, and a polished look.</p>
+            <button class="btn btnPrimary bookBtn" data-service="male-hair" type="button">Book</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER: shared -->
+    <footer class="siteFooter" aria-label="Footer">
+      <div class="container footerGrid">
+        <div class="footerCol">
+          <h3>EB Zoey Beauty</h3>
+          <p class="muted">Premium beauty services in Berlin.</p>
+          <button class="btn btnPrimary bookBtn" data-service="male-hair" type="button">Book an Appointment</button>
+        </div>
+
+        <div class="footerCol">
+          <h4>Address</h4>
+          <ul class="footerList">
+            <li>Alt-Moabit 82</li>
+            <li>10555 Berlin</li>
+            <li>Germany</li>
+          </ul>
+        </div>
+
+        <div class="footerCol">
+          <h4>Contact</h4>
+          <ul class="footerList">
+            <li><a href="tel:+490000000000">+49 000 000 0000</a></li>
+            <li><a href="mailto:hello@ebzoeybeauty.com">hello@ebzoeybeauty.com</a></li>
+          </ul>
+        </div>
+
+        <div class="footerCol">
+          <h4>Quick Links</h4>
+          <ul class="footerList">
+            <li><a href="female-hair.html">Female Hair</a></li>
+            <li><a href="cosmetics.html">Cosmetics</a></li>
+            <li><a href="jewelry.html">Jewelry</a></li>
+            <li><a href="careers.html">Careers</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container footerBottom">
+        <span class="muted">© <span id="year"></span> EB Zoey Beauty. All rights reserved.</span>
+      </div>
+    </footer>
+
+    <!-- BOOKING MODAL: shared -->
+    <div class="modal" id="bookingModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Booking modal">
+      <div class="modalBackdrop" data-close-modal="true" aria-hidden="true"></div>
+
+      <div class="modalPanel" role="document">
+        <div class="modalHeader">
+          <h3 class="modalTitle">Book an Appointment</h3>
+          <button class="modalClose" id="modalCloseBtn" type="button" aria-label="Close booking modal">✕</button>
+        </div>
+        <div class="modalBody">
+          <div class="bookingEmbed" id="bookingEmbed">
+            <p class="muted">Loading booking system…</p>
+          </div>
+          <div class="paymentStep" id="paymentStep" hidden>
+            <p class="muted">Payment step will be added here later.</p>
+          </div>
+        </div>
+        <div class="modalFooter">
+          <span class="muted small">Booking is confirmed by email.</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/booking.js"></script>
+</body>
+</html>
