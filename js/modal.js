@@ -7,12 +7,38 @@
 // =========================================================
 
 (function () {
-  const modal = document.getElementById("bookingModal");
-  const closeBtn = document.getElementById("modalCloseBtn");
+  const PROMO_KEY = "ebz_promo_pending";
+  const PROMO_NAME = "Valentine's Day 20% Off";
+  const bookingModal = document.getElementById("bookingModal");
+  const bookingCloseBtn = document.getElementById("modalCloseBtn");
+  const appointmentModal = document.getElementById("appointmentModal");
+  const appointmentCloseBtn = document.getElementById("appointmentModalCloseBtn");
 
-  if (!modal) return;
+  if (!bookingModal && !appointmentModal) return;
 
   let lastFocusedEl = null;
+  let appointmentLastFocusedEl = null;
+
+  function setPromoPending(value) {
+    localStorage.setItem(PROMO_KEY, String(value));
+    updatePromoButtons();
+  }
+
+  function isPromoPending() {
+    return localStorage.getItem(PROMO_KEY) === "true";
+  }
+
+  function updatePromoButtons() {
+    document.querySelectorAll(".promoClaim").forEach((btn) => {
+      if (isPromoPending()) {
+        btn.textContent = "Discount Ready";
+        btn.disabled = true;
+      } else {
+        btn.textContent = "Claim Now!";
+        btn.disabled = false;
+      }
+    });
+  }
 
   function lockScroll() {
     document.body.style.overflow = "hidden";
@@ -22,19 +48,21 @@
     document.body.style.overflow = "";
   }
 
-  function openModal(triggerEl) {
+  function openBookingModal(triggerEl) {
+    if (!bookingModal) return;
     lastFocusedEl = triggerEl || document.activeElement;
-    modal.classList.add("isOpen");
-    modal.setAttribute("aria-hidden", "false");
+    bookingModal.classList.add("isOpen");
+    bookingModal.setAttribute("aria-hidden", "false");
     lockScroll();
 
     // Focus close button for accessibility
-    if (closeBtn) closeBtn.focus();
+    if (bookingCloseBtn) bookingCloseBtn.focus();
   }
 
-  function closeModal() {
-    modal.classList.remove("isOpen");
-    modal.setAttribute("aria-hidden", "true");
+  function closeBookingModal() {
+    if (!bookingModal) return;
+    bookingModal.classList.remove("isOpen");
+    bookingModal.setAttribute("aria-hidden", "true");
     unlockScroll();
 
     // Restore focus to the element that opened the modal
@@ -43,36 +71,90 @@
     }
   }
 
-  // Open modal from any booking button
+  function openAppointmentModal(triggerEl) {
+    if (!appointmentModal) return;
+    appointmentLastFocusedEl = triggerEl || document.activeElement;
+    appointmentModal.classList.add("isOpen");
+    appointmentModal.setAttribute("aria-hidden", "false");
+    lockScroll();
+    if (appointmentCloseBtn) appointmentCloseBtn.focus();
+  }
+
+  function closeAppointmentModal() {
+    if (!appointmentModal) return;
+    appointmentModal.classList.remove("isOpen");
+    appointmentModal.setAttribute("aria-hidden", "true");
+    unlockScroll();
+    if (appointmentLastFocusedEl && typeof appointmentLastFocusedEl.focus === "function") {
+      appointmentLastFocusedEl.focus();
+    }
+  }
+
+  // Claim promo button
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest(".promoClaim");
+    if (!btn) return;
+    setPromoPending(true);
+  });
+
+  // Open booking modal from any service-level button
   document.addEventListener("click", (e) => {
     const btn = e.target.closest(".bookBtn");
     if (!btn) return;
 
     // Store selected service for later use (Calendly prefill / payments)
     const service = btn.getAttribute("data-service") || "general";
-    window.__EBZ_SELECTED_SERVICE__ = service;
+    if (isPromoPending()) {
+      window.__EBZ_SELECTED_SERVICE__ = `${service} + ${PROMO_NAME}`;
+      setPromoPending(false);
+    } else {
+      window.__EBZ_SELECTED_SERVICE__ = service;
+    }
 
-    openModal(btn);
+    openBookingModal(btn);
+  });
+
+  // Open appointment selector from any "Book an Appointment" button
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest(".bookAppointmentBtn");
+    if (!btn) return;
+    openAppointmentModal(btn);
   });
 
   // Close button
-  if (closeBtn) {
-    closeBtn.addEventListener("click", closeModal);
+  if (bookingCloseBtn) {
+    bookingCloseBtn.addEventListener("click", closeBookingModal);
   }
-
+  if (appointmentCloseBtn) {
+    appointmentCloseBtn.addEventListener("click", closeAppointmentModal);
+  }
   // Click backdrop to close
-  modal.addEventListener("click", (e) => {
-    const shouldClose = e.target && e.target.getAttribute("data-close-modal") === "true";
-    if (shouldClose) closeModal();
-  });
+  if (bookingModal) {
+    bookingModal.addEventListener("click", (e) => {
+      const shouldClose = e.target && e.target.getAttribute("data-close-modal") === "true";
+      if (shouldClose) closeBookingModal();
+    });
+  }
+  if (appointmentModal) {
+    appointmentModal.addEventListener("click", (e) => {
+      const shouldClose = e.target && e.target.getAttribute("data-close-modal") === "true";
+      if (shouldClose) closeAppointmentModal();
+    });
+  }
 
   // ESC to close
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal.classList.contains("isOpen")) {
-      closeModal();
+    if (e.key === "Escape" && bookingModal && bookingModal.classList.contains("isOpen")) {
+      closeBookingModal();
+    }
+    if (e.key === "Escape" && appointmentModal && appointmentModal.classList.contains("isOpen")) {
+      closeAppointmentModal();
     }
   });
 
   // Expose close function (useful later when payments are added)
-  window.__EBZ_CLOSE_BOOKING_MODAL__ = closeModal;
+  window.__EBZ_CLOSE_BOOKING_MODAL__ = closeBookingModal;
+
+  // Initialize promo button state
+  updatePromoButtons();
 })();

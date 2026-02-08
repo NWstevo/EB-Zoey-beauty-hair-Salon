@@ -1,21 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap');
 /* =========================================================
    BASE: variables, resets, typography
    Edit colors here to update the entire website theme
    ========================================================= */
 
 :root{
-  --tan:#e2d2c2;
-  --gold:#f1c122;
-  --beige:hsl(56, 75%, 84%);
-  --ink:#0b0b0b;
-  --white:#ffffff;
+  /* Warm & calm palette */
+  --tan: #a67c52; /* muted tan */
+  --gold: #cfa25a; /* softer warm gold */
+  --beige: #efe6d0; /* warm soft beige */
+  --ink: #15110f; /* deeper ink for clarity */
+  --white: #ffffff;
+  --dessert: radial-gradient(circle, #f3e9d8 0%, #cbb08a 100%);
+  --vegas: #bfa843; /* slightly softened */
+  --brownie: radial-gradient(circle, #dbc29b 0%, #b06a3a 100%); /* camel -> copper */
 
-  --radius:18px;
-  --shadow: 0 14px 40px rgba(0,0,0,.35);
+  --radius:14px;
+  --shadow: 0 8px 22px rgba(0,0,0,.28);
   --max: 1120px;
 
-  --textMuted: rgba(243,234,215,.78);
-  --borderSoft: rgba(243,234,215,.14);
+  --textMuted: rgba(20,14,10,.62);
+  --borderSoft: rgba(20,14,10,.2);
   --panel: rgba(255,255,255,.05);
 }
 
@@ -23,12 +28,14 @@
 html{ scroll-behavior:smooth; }
 body{
   margin:0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+  font-family: "Manrope", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
   color:var(--white);
-  line-height:1.5;
+  line-height:1.45;
+  letter-spacing: .1px;
 
   /* Premium background */
   background:
+    radial-gradient(1200px 500px at 10% 0%, rgba(255,255,255,.08), transparent 60%),
     var(--beige);
 }
 
@@ -42,5 +49,39 @@ button{ font:inherit; }
   padding:0 20px;
 }
 
-.muted{ color: var(--textMuted); }
+.muted{ color: var(--beige); }
 .small{ font-size: 13px; }
+
+.brightText{
+  color: #ffffff;
+}
+
+.brightText .muted{
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.brightText h1,
+.brightText h2,
+.brightText h3,
+.brightText h4{
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.brightText p,
+.brightText li,
+.brightText label{
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 720px){
+  .container{
+    padding:0 16px;
+  }
+}
+
+@media (max-width: 560px){
+  .container{
+    padding:0 14px;
+  }
+}

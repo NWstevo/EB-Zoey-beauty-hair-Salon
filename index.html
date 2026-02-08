@@ -3,8 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>EB Zoey Beauty Hair Salon - Berlin</title>
-  <meta name="description" content="EB Zoey Beauty in Berlin — premium hair, cosmetics, and jewelry. Book an appointment anytime." />
+  <title>EB Zoey Beauty Hair Salon in Berlin | Hair, Cosmetics &amp; Jewelry</title>
+    <meta name="description" content="EB Zoey Beauty Hair Salon in Berlin offering premium hair services, cosmetics, and jewelry. Book an appointment or shop featured items online." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.ebzoeybeauty.com/" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="EB Zoey Beauty" />
+  <meta property="og:title" content="EB Zoey Beauty Hair Salon in Berlin" />
+  <meta property="og:description" content="Premium hair services, cosmetics, and jewelry in Berlin. Book an appointment or shop featured items." />
+  <meta property="og:url" content="https://www.ebzoeybeauty.com/" />
+  <meta property="og:image" content="https://www.ebzoeybeauty.com/assets/woman_1.jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="EB Zoey Beauty Hair Salon in Berlin" />
+  <meta name="twitter:description" content="Premium hair services, cosmetics, and jewelry in Berlin. Book an appointment or shop featured items." />
+  <meta name="twitter:image" content="https://www.ebzoeybeauty.com/assets/woman_1.jpeg" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "BeautySalon"],
+    "name": "EB Zoey Beauty",
+    "url": "https://www.ebzoeybeauty.com/",
+    "image": "https://www.ebzoeybeauty.com/assets/woman_1.jpeg",
+    "telephone": "+49 000 000 0000",
+    "priceRange": "��",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Alt-Moabit 82",
+      "addressLocality": "Berlin",
+      "postalCode": "10555",
+      "addressCountry": "DE"
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "09:00",
+      "closes": "19:00"
+    }],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Salon Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hair Extensions" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hair Colouring" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hair Treatment" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wig Fixing & Installation" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hair Cuts for Men & Women" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Jewelries & Cosmetics" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Braids & Protective Styling" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Nail Services" } }
+      ]
+    }
+  }
+  </script>
 
   <!-- CSS: global + layout + components + animations -->
   <link rel="stylesheet" href="css/base.css">
@@ -23,11 +77,12 @@
         <span class="logo">EZ</span>
         <span class="brandText">
           <span class="brandName">EB Zoey Beauty</span>
-          <span class="brandMeta">Beauty House · Berlin</span>
+          <span class="brandMeta">Beauty Salon · Berlin</span>
         </span>
       </a>
 
       <nav class="navLinks" aria-label="Primary navigation">
+        <a class="isActiveLink" href="index.html">Home</a>
         <a href="male-hair.html">Male Hair</a>
         <a href="female-hair.html">Female Hair</a>
         <a href="cosmetics.html">Cosmetics</a>
@@ -37,8 +92,9 @@
 
       <div class="headerActions">
         <!-- Global booking button (opens modal) -->
-        <button class="btn btnPrimary bookBtn" data-service="general" type="button">
+        <button class="btn btnPrimary bookAppointmentBtn" data-service="general" type="button">
           Book an Appointment
+        </button>
         </button>
 
         <!-- Mobile menu burger -->
@@ -51,15 +107,39 @@
     <!-- Mobile menu panel -->
     <div class="mobileMenu" id="mobileMenu" aria-label="Mobile navigation">
       <div class="container mobileMenuInner">
+        <a href="index.html">Home</a>
         <a href="male-hair.html">Male Hair</a>
         <a href="female-hair.html">Female Hair</a>
         <a href="cosmetics.html">Cosmetics</a>
         <a href="jewelry.html">Jewelry</a>
         <a href="careers.html">Careers</a>
-        <button class="btn btnGhost bookBtn" data-service="general" type="button">Book an Appointment</button>
+        <button class="btn btnGhost bookAppointmentBtn" data-service="general" type="button">Book an Appointment</button>
       </div>
     </div>
   </header>
+
+    <!-- Promotion Banner -->
+  <section class="promoBanner">
+    <div class="container promoInner">
+      <div class="promoMarquee" aria-label="Promotion news bar">
+        <div class="promoMarqueeTrack" aria-hidden="true">
+          <div class="promoMarqueeGroup">
+            <span class="promoEyebrow">This Weekend!!!</span>
+            <span class="promoGradient">Valentine's Day</span>
+            <span class="promoBadge">Special</span>
+            <span class="promoSub">Save 20% on all services</span>
+          </div>
+          <div class="promoMarqueeGroup">
+            <span class="promoEyebrow">This Weekend!!!</span>
+            <span class="promoGradient">Valentine's Day</span>
+            <span class="promoBadge">Special</span>
+            <span class="promoSub">Save 20% on all services</span>
+          </div>
+        </div>
+      </div>
+      <button class="btn btnPrimary bookBtn promoCta promoClaim" data-service="valentine-special" type="button">Claim Now!</button>
+    </div>
+  </section>
 
   <main>
     <!-- =========================================================
@@ -72,7 +152,7 @@
         <!-- NOTE: Replace these images with your real salon images -->
         <div class="heroSlide isActive" style="background-image:url('assets/man_1.jpeg');"></div>
         <div class="heroSlide" style="background-image:url('assets/kid_boy.jpeg');"></div>
-        <div class="heroSlide" style="background-image:url('assets/kid_girl\ 1.jpeg');"></div>
+        <div class="heroSlide" style="background-image:url('assets/kid_girl_1.jpeg');"></div>
         <div class="heroSlide" style="background-image:url('assets/woman_1.jpeg');"></div>
       </div>
 
@@ -81,12 +161,12 @@
 
       <!-- Brand name only (as requested) -->
       <div class="container heroContent">
-        <h1 class="heroTitle">EB Zoey Beauty</h1>
-        <p class="heroTagline">Hair · Cosmetics · Jewelry</p>
+        <h1 class="heroTitle">EB Zoey Beauty Hair Salon</h1>
+        <p class="heroTagline">Professional Hair & Beauty Services in Berlin</p>
 
         <!-- Optional booking button in hero (kept minimal but available) -->
         <div class="heroCTA">
-          <button class="btn btnPrimary bookBtn" data-service="general" type="button">Book an Appointment</button>
+          <button class="btn btnPrimary bookAppointmentBtn" data-service="general" type="button">Book an Appointment</button>
         </div>
       </div>
     </section>
@@ -115,7 +195,7 @@
             </div>
           </a>
 
-          <a class="tile" href="cosmetics.html" style="background-image:url('assets/images/tile-cosmetics.jpg');" aria-label="Cosmetics page">
+          <a class="tile" href="cosmetics.html" style="background-image:url('assets/cosmetics.jpg');" aria-label="Cosmetics page">
             <div class="tileOverlay" aria-hidden="true"></div>
             <div class="tileText">
               <h2>Cosmetics</h2>
@@ -123,7 +203,7 @@
             </div>
           </a>
 
-          <a class="tile" href="jewelry.html" style="-background-image:url('assets/images/tile-jewelry.jpg');" aria-label="Jewelry page">
+          <a class="tile" href="jewelry.html" style="background-image:url('assets/jewelries.jpg');" aria-label="Jewelry page">
             <div class="tileOverlay" aria-hidden="true"></div>
             <div class="tileText">
               <h2>Jewelry</h2>
@@ -141,41 +221,154 @@
     <section class="visionSection" aria-label="Vision and About">
       <div class="container">
         <div class="visionBox" id="visionBox" aria-expanded="false">
-          <h2>Vision &amp; About Us</h2>
+          <h2>About Us</h2>
           <div class="visionText" id="visionText">
             <p>
-              EB Zoey Beauty is a modern beauty house where craftsmanship meets confidence.
-              We bring premium care to hair styling, cosmetics, and jewelry with elegance, hygiene, and attention to detail.
-            </p>
+              EB Zoey Beauty Hair Salon is a full-service beauty salon located in the heart of Berlin. 
+              We are dedicated to providing high-quality hair care and beauty services for men and women,
+            using professional techniques and carefully selected products to deliver outstanding results.</p>
+            <p><strong>Our goal is simple: to help you look good, feel confident, and leave our salon satisfied every time.</strong></p>
+ 
+            <p>Our Mission
+
+              At EB Zoey Beauty Hair Salon, our mission is to enhance your natural beauty through professional care,
+              creativity, and attention to detail. We focus on healthy hair, modern styling, and personalized service
+               tailored to each client’s needs.</p>
+
+            <p>Our Salon Experience
+From the moment you walk in, you’ll receive friendly service and professional attention. We take time to understand your preferences and recommend styles and treatments that suit you best.
+              Every appointment is handled with care, patience, and professionalism.</p>
+ 
+            <p>Our team will confirm your appointment as soon as possible.</p>
+ 
             <p>
               Our team is passionate about creating looks that feel personal and powerful.
               Whether you are coming for a fresh cut, a signature style, or a full beauty moment, we are here to make you feel your best.
             </p>
           </div>
-          <button class="visionToggle" id="visionToggle" type="button">Read more</button>
         </div>
       </div>
     </section>
 
+  
     <!-- =========================================================
-         TRAPEZIUM INTRO: salon vision + animated reveal
-         This uses a trapezium shape and a scroll-in animation
+         WHAT MAKES US DIFFERENT: skillset-style CV rectangles
+         Inserted after the vision box
          ========================================================= -->
-    <section class="trapeziumSection revealOnScroll" aria-label="Vision">
-      <div class="container trapeziumInner">
-        <h2>Our Vision</h2>
-        <p>
-          EB Zoey Beauty is a modern beauty house where craftsmanship meets confidence.
-          We bring premium care to hair styling, cosmetics, and jewelry — with elegance, hygiene, and attention to detail.
-        </p>
-        <p>
-          Whether you are coming for a fresh look, a signature style, or a full beauty moment, our goal is simple:
-          make you feel your best, every time.
-        </p>
+    <section class="skillsSection" aria-label="What Makes Us Different">
+      <div class="container">
+        <h2 class="sectionTitlePill">What Makes Us Different</h2>
+        <div class="skillsSplit">
+          <div class="skillsGrid">
+            <div class="skillCard"><p>Services for all hair types</p></div>
+            <div class="skillCard"><p>Quality beauty products and tools</p></div>
+            <div class="skillCard"><p>Professional and experienced stylists</p></div>
+            <div class="skillCard"><p>Customer satisfaction as our top priority</p></div>
+            <div class="skillCard"><p>Personalized consultations for every client</p></div>
+            <div class="skillCard"><p>Clean, comfortable, and welcoming environment</p></div>
+          </div>
+          <div class="servicesScreen" aria-label="Services">
+            <div class="servicesTitle">Our Services</div>
+            <div class="servicesReel">
+              <div class="serviceCard">
+                <h3>Hair Extensions</h3>
+                <p>We provide professional installation of high-quality hair extensions for length, volume, and protective styling. Our techniques ensure comfort, durability, and a natural finish.</p>
+              </div>
+              <div class="serviceCard">
+                <h3>Hair Colouring</h3>
+                <p>From subtle tones to bold transformations, our coloring services are done with care to maintain hair health while achieving vibrant, long-lasting results.</p>
+              </div>
+              <div class="serviceCard">
+                <h3>Hair Treatment</h3>
+                <p>Our hair treatments are designed to strengthen, repair, and nourish damaged or dry hair, helping to restore shine, moisture, and overall hair health.</p>
+              </div>
+              <div class="serviceCard">
+                <h3>Wig Fixing &amp; Installation</h3>
+                <p>We offer secure and natural-looking wig installation services, including customization to suit your face shape and personal style.</p>
+              </div>
+              <div class="serviceCard">
+                <h3>Hair Cuts for Men &amp; Women</h3>
+                <p>Whether you prefer a classic cut or a modern style, our stylists deliver precise haircuts tailored to your look and lifestyle.</p>
+              </div>
+              <div class="serviceCard">
+                <h3>Jewelries &amp; Cosmetics</h3>
+                <p>We also provide a selection of beauty accessories, jewelries, and cosmetics to complement your style and complete your look.</p>
+              </div>
+              <div class="serviceCard">
+                <h3>Braids &amp; Protective Styling</h3>
+                <p>We specialize in neat, long-lasting braiding styles including protective and modern braid designs, customized to suit your face shape and personal style.</p>
+              </div>
+              <div class="serviceCard">
+                <h3>Nail Services</h3>
+                <p>Professional nail care services including nail grooming, styling, and enhancements, designed to keep your nails clean, stylish, and well-maintained.</p>
+              </div>
+              <!-- Duplicate for seamless loop -->
+              <div class="serviceCard">
+                <h3>Hair Extensions</h3>
+                <p>We provide professional installation of high-quality hair extensions for length, volume, and protective styling. Our techniques ensure comfort, durability, and a natural finish.</p>
+              </div>
+              <div class="serviceCard">
+                <h3>Hair Colouring</h3>
+                <p>From subtle tones to bold transformations, our coloring services are done with care to maintain hair health while achieving vibrant, long-lasting results.</p>
+              </div>
+              <div class="serviceCard">
+                <h3>Hair Treatment</h3>
+                <p>Our hair treatments are designed to strengthen, repair, and nourish damaged or dry hair, helping to restore shine, moisture, and overall hair health.</p>
+              </div>
+              <div class="serviceCard">
+                <h3>Wig Fixing &amp; Installation</h3>
+                <p>We offer secure and natural-looking wig installation services, including customization to suit your face shape and personal style.</p>
+              </div>
+              <div class="serviceCard">
+                <h3>Hair Cuts for Men &amp; Women</h3>
+                <p>Whether you prefer a classic cut or a modern style, our stylists deliver precise haircuts tailored to your look and lifestyle.</p>
+              </div>
+              <div class="serviceCard">
+                <h3>Jewelries &amp; Cosmetics</h3>
+                <p>We also provide a selection of beauty accessories, jewelries, and cosmetics to complement your style and complete your look.</p>
+              </div>
+              <div class="serviceCard">
+                <h3>Braids &amp; Protective Styling</h3>
+                <p>We specialize in neat, long-lasting braiding styles including protective and modern braid designs, customized to suit your face shape and personal style.</p>
+              </div>
+              <div class="serviceCard">
+                <h3>Nail Services</h3>
+                <p>Professional nail care services including nail grooming, styling, and enhancements, designed to keep your nails clean, stylish, and well-maintained.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <div class="trapeziumActions">
-          <button class="btn btnPrimary bookBtn" data-service="general" type="button">Book an Appointment</button>
-          <a class="btn btnGhost" href="careers.html">Careers</a>
+    
+
+    <!-- =========================================================
+         BLACK FRIDAY STYLE PROMO: gold accents + balloons
+         Inserted before footer as requested
+         ========================================================= -->
+    <section class="bfPromo" aria-label="Seasonal promotion">
+      <div class="container bfPromoInner">
+        <div class="bfPromoText">
+          <p class="bfPromoEyebrow">Limited Offer</p>
+          <h2 class="bfPromoTitle">Valentine's Day</h2>
+          <p class="bfPromoSubtitle">Discount</p>
+          <p class="bfPromoDesc">
+            Treat yourself this weekend with premium salon services.
+            Enjoy exclusive gold‑tier savings on hair, beauty, and more.
+          </p>
+          <div class="bfPromoActions">
+            <button class="btn btnPrimary discountBtn promoClaim" type="button">Claim Now!</button>
+          </div>
+        </div>
+        <div class="bfPromoArt" aria-hidden="true">
+          <div class="bfPromoTag">20% OFF</div>
+          <div class="bfBalloon bfb1"></div>
+          <div class="bfBalloon bfb2"></div>
+          <div class="bfBalloon bfb3"></div>
+          <div class="bfBalloon bfb4"></div>
+          <div class="bfBalloon bfb5"></div>
+          <div class="bfBalloon bfb6"></div>
         </div>
       </div>
     </section>
@@ -184,7 +377,8 @@
          FOOTER: business information + links + social media
          Large footer as requested
          ========================================================= -->
-    <footer class="siteFooter" aria-label="Footer">
+    
+<footer class="siteFooter" aria-label="Footer">
       <div class="container footerGrid">
         <div class="footerCol">
           <h3>EB Zoey Beauty</h3>
@@ -192,15 +386,18 @@
             Premium hair services, cosmetics, and jewelry in Berlin.
             Book anytime via our appointment system.
           </p>
-          <button class="btn btnPrimary bookBtn" data-service="general" type="button">Book an Appointment</button>
+          <button class="btn btnPrimary bookAppointmentBtn" data-service="general" type="button">Book an Appointment</button>
         </div>
 
-        <div class="footerCol">
+                <div class="footerCol">
           <h4>Address</h4>
           <ul class="footerList">
-            <li>Alt-Moabit 82</li>
-            <li>10555 Berlin</li>
-            <li>Germany</li>
+            <li>
+              <a class="addressLink" href="https://www.google.com/maps/search/?api=1&query=Alt-Moabit%2082%2010555%20Berlin%20Germany" target="_blank" rel="noreferrer">
+                <span class="pinIcon" aria-hidden="true">&#x1F4CD;</span>
+                Alt-Moabit 82, 10555 Berlin, Germany
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -208,8 +405,8 @@
           <h4>Contact</h4>
           <ul class="footerList">
             <li><a href="tel:+490000000000">+49 000 000 0000</a></li>
-            <li><a href="mailto:hello@ebzoeybeauty.com">hello@ebzoeybeauty.com</a></li>
-            <li><span class="muted">Mon–Sat: 09:00–19:00</span></li>
+            <li><a href="mailto:hello@ebzoeybeauty.com">ebzoeysalon@gmail.com</a></li>
+            <li><span class="muted">Mon-Sat: 10:00 - 20:00</span></li>
           </ul>
         </div>
 
@@ -265,9 +462,10 @@
       </div>
 
       <div class="container footerBottom">
-        <span class="muted">© <span id="year"></span> EB Zoey Beauty. All rights reserved.</span>
+        <span class="muted">? <span id="year"></span> EB Zoey Beauty. All rights reserved.</span>
       </div>
     </footer>
+
 
     <!-- =========================================================
          BOOKING MODAL: shared popup (Calendly now, payments later)
@@ -301,11 +499,47 @@
 
         <div class="modalFooter">
           <span class="muted small">
-            You can close this window anytime. Booking is confirmed by email.
+            You can close this window anytime. Booking will be confirmed by email.
           </span>
         </div>
       </div>
     </div>
+
+    <!-- =========================================================
+  
+    <!-- =========================================================
+         APPOINTMENT SELECTOR: choose service category
+         ========================================================= -->
+        <div class="modal modalCentered" id="appointmentModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Choose a service">
+      <div class="modalBackdrop" data-close-modal="true" aria-hidden="true"></div>
+
+      <div class="modalPanel" role="document">
+        <div class="modalHeader">
+          <h3 class="modalTitle">Choose a Service</h3>
+          <button class="modalClose" id="appointmentModalCloseBtn" type="button" aria-label="Close service selector">x</button>
+        </div>
+        <div class="modalBody">
+          <div class="tilesGrid">
+            <a class="tile" href="male-hair.html" style="background-image:url('assets/man_1.jpeg');" aria-label="Male Hair page">
+              <div class="tileOverlay" aria-hidden="true"></div>
+              <div class="tileText">
+                <h2>Male Hair</h2>
+                <span>Explore</span>
+              </div>
+            </a>
+            <a class="tile" href="female-hair.html" style="background-image:url('assets/woman_1.jpeg');" aria-label="Female Hair page">
+              <div class="tileOverlay" aria-hidden="true"></div>
+              <div class="tileText">
+                <h2>Female Hair</h2>
+                <span>Explore</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
   </main>
 
   <!-- JS: global + modal + slideshow + booking -->
